@@ -1,6 +1,6 @@
 # 🏛️ Cathedral of Ashes 
 
-## 👁️ Visão Geral e Estética do Projeto 
+## Visão Geral e Estética do Projeto 
 O jogo transporta dois jogadores para o interior de uma catedral profanada e coberta de cinzas. A direção de arte adota uma paleta estritamente sombria sendo o foco principal do tema do jogo:
 
 **Preto (#0A0A0A)**: Domina os fundos e a escuridão dos cenários, trazendo o tom de isolamento.
@@ -19,3 +19,26 @@ O jogo possui 6 classes jogáveis, cada uma com sua ilustração única em alto 
 
  ## 🎲 A Mecânica do Dado d9 (Dado de 9 Lados)
 A cada turno, além de jogar uma carta da mão, o jogador realiza a rolagem de um dado de 9 lados (com valores de 1 a 9). Se o dado resultar no número 9, a Passiva Especial da classe é ativada instantaneamente, alterando o rumo da partida.
+
+## Arquitetura de Sistemas Distribuídos
+O projeto foi construído sob uma arquitetura Cliente-Servidor em Tempo Real, preparada para suportar a execução simultânea em duas máquinas conectadas em rede (ou em abas separadas na mesma máquina):
+
+**[ Front-end: PC 1 ]**  <--- WebSockets (STOMP / SockJS) --->  [ Back-end: Java / Spring Boot ]  <--->  [ PostgreSQL ]
+
+**[ Front-end: PC 2 ]**  <-----------------------------------------------+
+
+## Principais Conceitos Aplicados:
+- Servidor Central Autoritativo: O Back-end em Java/Spring Boot controla o estado global do jogo (GameState), processa rolagens do d9, valida regras de cartas, aplica bônus de classe e calcula a vida dos jogadores.
+
+- Comunicação Event-Driven via WebSockets: As jogadas tomadas na Máquina 1 são enviadas ao servidor e transmitidas instantaneamente para a Máquina 2 sem recarregar a página (page refresh).
+
+- Camada de Persistência: O banco de dados PostgreSQL registra partidas, histórico de duelos e dados dos jogadores.
+
+## 💻 Tecnologias Utilizadas
+- Back-end: Java 17+, Spring Boot, Spring WebSocket (STOMP), Spring Data JPA.
+
+- Front-end: HTML5, CSS3 (Theme Darkwood em Preto, Cinza e Vermelho), JavaScript ES6+, SockJS & STOMP Client.
+
+- Banco de Dados: PostgreSQL.
+
+- Controle de Versão: Git & GitHub.
