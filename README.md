@@ -1,54 +1,59 @@
-# 🏛️ Cathedral of Ashes 
+# 🏛️ Cathedral of Ashes — Dark Fantasy Card Game
 
-## 👥 Equipe
-- |`Aluno 1`: Carlos Eduardo Martins Fortunato
-- |`Aluno 2`: Matheus Silva De Almeida
+> **Cathedral of Ashes** é um jogo de duelo tático de cartas em tempo real (1v1), ambientado num universo *dark fantasy* soturno fortemente inspirado pela atmosfera sufocante de **Darkwood**. Com uma identidade visual marcante focada nas cores **preto, cinza e vermelho sangrento**, o projeto foi projetado e implementado como requisito prático para a disciplina de **Sistemas Distribuídos**.
 
-## Visão Geral e Estética do Projeto 
-O jogo transporta dois jogadores para o interior de uma catedral profanada e coberta de cinzas. A direção de arte adota uma paleta estritamente sombria sendo o foco principal do tema do jogo:
+---
 
-**`Preto (#0A0A0A)`**: Domina os fundos e a escuridão dos cenários, trazendo o tom de isolamento.
+## 🟢 1. O Que Já Foi Definido e Estipulado
 
-**`Cinza (#2A2A2A / #8C8C8C)`**: Representa as pedras góticas da catedral, as bordas das cartas e elementos de interface.
+### 👁️ Visão Geral e Estética
+* **Estilo Visual:** Monocromático em alto contraste (Preto e Cinza) com destaques em Vermelho Sangrento para HP, efeitos e ações de combate.
+* **Cenário:** Interior de uma catedral em ruínas coberta de cinzas.
+* **Modo de Jogo:** Duelo PvP em tempo real para 2 jogadores (100 HP cada).
 
-**`Vermelho (#8B0000 / #FF2400)`**: Destaca pontos críticos do combate, como vida (HP), efeitos de dano, rituais de ataque e ativação de habilidades ativas.
+### 🎲 Tabela Oficial de Regras do Dado (d9)
+O dado de 9 lados ($d9$) atua como o motor de dinamismo e multiplicador de jogadas da partida:
 
-## ⚜️ Classes, Equilíbrio e Mecânicas de Combate
-O jogo possui 6 classes jogáveis, cada uma com sua ilustração única em alto contraste e um ciclo fechado de Vantagens (+30% de dano ou redução) e Desvantagens:
-| **`Classe`** | **`Vantagem Contra`** | **`Desvantagem Contra`** | **`Passiva Especial (Lado 9 do d9)`** |
-| :--- | :--- | :--- | :--- |
-| Vampiro | Cavaleiro | Clérigo | Duplica roubo de vida no próximo ataque. |
-| Clérigo | Vampiro, Necromante | Bárbaro | Cria um escudo que anula 100% do dano. |
-| Cavaleiro | Lobisomem, Bárbaro | Vampiro | Contra-ataque automático (50% do dano). |
+| Dado (d9) | Efeito no Turno | Regras e Condições de Aplicação |
+| :--- | :--- | :--- |
+| **1 ou 2** | **Azar Extremo (Perde a Vez)** | O jogador é consumido pelas sombras. **Não pode jogar nenhuma carta** no turno e passa a vez imediatamente. |
+| **3, 4 ou 5** | **Turno Normal** | Permissão padrão para jogar **1 carta comum** da mão (aplica o dano/efeito base, sem multiplicadores). |
+| **6 ou 7** | **Ataque Fortalecido ($\times 2$)** | Permite jogar 1 carta comum, **multiplicando o dano/efeito por 2** ($\times 2$) no resultado final da jogada. |
+| **8** | **Gatilho de Carta Bônus / Fortalecido** | • **Se TIVER Carta Bônus na mão:** É a oportunidade de ativá-la! O jogador pode jogar a **Carta Bônus**.<br>• **Se NÃO tiver Carta Bônus:** Pode jogar 1 carta comum com **dano/efeito multiplicado por 2** ($\times 2$). |
+| **9** | **Coringa Adaptativo (Regra Especial)** | O efeito adapta-se ao inventário do jogador:<br><br>• **Com 2 Cartas Bônus na mão (Limite Máximo):** Funciona como o **8** (libera o uso de 1 Carta Bônus).<br>• **Com 0 Cartas Bônus na mão:** O jogador joga 1 carta comum e seu **dano/efeito é multiplicado por 3** ($\times 3$).<br>• **Com 1 Carta Bônus na mão (Caindo 2x no 9):** Na primeira ocorrência o jogador pode **usar a Carta Bônus**; na segunda ocorrência (ou se optar por não gastar a bônus), joga 1 carta comum com **dano/efeito multiplicado por 3** ($\times 3$). |
 
- ## 🎲 A Mecânica do Dado d9 (Dado de 9 Lados)
-A cada turno, além de jogar uma carta da mão, o jogador realiza a rolagem de um dado de 9 lados (com valores de 1 a 9). Se o dado resultar no número 9, a Passiva Especial da classe é ativada instantaneamente, alterando o rumo da partida.
+> **Nota de Inventário:** Cada jogador pode ter no máximo **2 Cartas Bônus em mãos** por partida.
 
-## Arquitetura de Sistemas Distribuídos
-O projeto foi construído sob uma arquitetura Cliente-Servidor em Tempo Real, preparada para suportar a execução simultânea em duas máquinas conectadas em rede (ou em abas separadas na mesma máquina):
+### ⚜️ Classes Confirmadas (6)
+* Vampiro
+* Clérigo
+* Cavaleiro
+* Lobisomem
+* Bárbaro
+* Necromante
 
-**[ Front-end: PC 1 ]**  <--- WebSockets (STOMP / SockJS) --->  [ Back-end: Java / Spring Boot ]  <--->  [ PostgreSQL ]
+### 🛠️ Arquitetura e Tecnologias
+* **Estrutura:** Monorepo no GitHub (`Cathedral-of-Ashes`).
+* **Back-end:** Java 17+, Spring Boot, Spring WebSocket (STOMP), Spring Data JPA.
+* **Front-end:** HTML5, CSS3, JavaScript ES6+ (alocado em `src/main/resources/static/`).
+* **Banco de Dados:** PostgreSQL.
 
-**[ Front-end: PC 2 ]**  <-----------------------------------------------+
+---
 
-## Principais Conceitos Aplicados:
-- `Servidor Central Autoritativo`: O Back-end em Java/Spring Boot controla o estado global do jogo (GameState), processa rolagens do d9, valida regras de cartas, aplica bônus de classe e calcula a vida dos jogadores.
+## 🟡 2. O Que Falta Definir (Próximos Passos)
 
-- `Comunicação Event-Driven via WebSockets`: As jogadas tomadas na Máquina 1 são enviadas ao servidor e transmitidas instantaneamente para a Máquina 2 sem recarregar a página (page refresh).
+Para avançar para a codificação completa do jogo, os seguintes tópicos precisam ser especificados:
 
-- `Camada de Persistência`: O banco de dados PostgreSQL registra partidas, histórico de duelos e dados dos jogadores.
+### 📄 A. Catálogo de Cartas Comuns e Cartas Bônus
+* Definir os nomes, imagens e valores base das **Cartas Comuns** (ex: *Ataque*, *Defesa/Escudo*, *Cura/Dreno*).
+* Definir o efeito especial e o valor exato da **Carta Bônus de cada uma das 6 Classes**.
 
-## 💻 Tecnologias Utilizadas
-- | `Back-end:` Java 17+, Spring Boot, Spring WebSocket (STOMP), Spring Data JPA.
+### ⚔️ B. Regra Prática da Matriz de Vantagens
+* Estipular como a vantagem/desvantagem entre as classes será calculada em código (ex: $+50\%$ de dano extra ou alteração no HP inicial do jogador).
 
-- | `Front-end`: HTML5, CSS3 (Theme Darkwood em Preto, Cinza e Vermelho), JavaScript ES6+, SockJS & STOMP Client.
+### 🗄️ C. Modelagem do Banco de Dados PostgreSQL
+* Criar o script SQL (`schema.sql`) com as tabelas de jogadores (`tb_player`) e histórico de partidas (`tb_match`).
 
-- | `Banco de Dados`: PostgreSQL.
-
-- | `Controle de Versão`: Git & GitHub.
-
-## 🚀 Como Executar o Projeto
-`Pré-requisitos`:
-- Java 17 ou superior instalado.
-- Banco de dados PostgreSQL rodando localmente.
-- Git instalado.
+### 📡 D. Protocolo WebSocket e Interface
+* Estruturar o objeto JSON (`GameState`) transmitido pelo servidor Spring Boot para atualização da interface dos dois clientes em tempo real.
+* Desenhar os componentes da interface em HTML/CSS (mesa da catedral, mãos de cartas, dado e contadores de HP).
