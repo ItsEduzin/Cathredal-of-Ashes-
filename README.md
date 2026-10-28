@@ -32,6 +32,55 @@ O dado de 9 lados ($d9$) atua como o motor de dinamismo e multiplicador de jogad
 * Bárbaro
 * Necromante
 
+## ⚔️ Sistema de Vantagens e Desvantagens (Combat Matrix)
+
+A dinâmica de combate do **Cathedral of Ashes** segue um ciclo tático fundamentado na *lore* de cada classe. Atacar uma classe vulnerável concede bônus de dano e anulação de efeitos passivos.
+
+---
+
+### 📊 Tabela Geral de Conflitos
+
+| Classe | 🟢 Vantagem Contra (+Dano / Anula Efeito) | 🔴 Desvantagem Contra (Recebe +Dano / Efeito Anulado) |
+| :--- | :--- | :--- |
+| **Necromante** | **Clérigo** *(Mestria Profana)* | **Bárbaro** *(Olho Místico)* |
+| **Bárbaro** | **Necromante**, **Cavaleiro** | **Lobisomem** *(Agilidade Bestial)* |
+| **Cavaleiro** | **Vampiro** *(Armadura Espectral)* | **Clérigo**, **Bárbaro** |
+| **Lobisomem** | **Bárbaro**, **Clérigo** | **Vampiro** *(Dreno de Sangue)* |
+| **Clérigo** | **Cavaleiro** *(Purificação/Selamento)* | **Necromante**, **Lobisomem** |
+| **Vampiro** | **Lobisomem** *(Regeneração de Sangue)* | **Cavaleiro** *(Sem Sangue Vital)* |
+
+---
+
+### 📜 Justificativa Tática da Lore
+
+#### 1. Necromante
+* **Vantagem contra Clérigo:** Por ser filho de Dragon e criador da magia negra original, sua feitiçaria sobrepõe os rituais da igreja, corrompendo as barreiras mágicas do Clérigo.
+* **Desvantagem contra Bárbaro:** O olho místico do Bárbaro enxerga a aura de seus feitiços e ilude sua furtividade, deixando o Necromante exposto a ataques físicos devastadores.
+
+#### 2. Bárbaro
+* **Vantagem contra Necromante e Cavaleiro:** Seu olho mágico anula as ilusões do Necromante, e sua força bruta com o machado quebra a postura e esmaga as placas da armadura do Cavaleiro.
+* **Desvantagem contra Lobisomem:** Sem armadura pesada ou esquiva suficiente, o Bárbaro não consegue conter a velocidade brutal e os acertos críticos do Lobisomem.
+
+#### 3. Cavaleiro
+* **Vantagem contra Vampiro:** Como um fantasma selado em uma armadura de ferro sem sangue vital, o Cavaleiro torna a mecânica de dreno e cura do Vampiro completamente inútil.
+* **Desvantagem contra Clérigo e Bárbaro:** Sendo uma alma espectral presa, o Cavaleiro é altamente vulnerável aos milagres de selamento do Clérigo e aos golpes pesados do Bárbaro.
+
+#### 4. Lobisomem
+* **Vantagem contra Bárbaro e Clérigo:** Sua velocidade sobrenatural supera a defesa física do Bárbaro. Contra o Clérigo, movido pelo ódio à Catedral, o Lobisomem rompe a linha sacerdotal antes do lançamento dos feitiços.
+* **Desvantagem contra Vampiro:** O abundante sangue da besta serve como a fonte perfeita para alimentar a praga do Vampiro, que se regenera rapidamente em combates prolongados.
+
+#### 5. Clérigo
+* **Vantagem contra Cavaleiro:** Domina os rituais de canalização de almas e magia sagrada, sendo capaz de selar ou banir a névoa fantasmagórica que prende o Cavaleiro à armadura.
+* **Desvantagem contra Necromante e Lobisomem:** Fisicamente frágil, o Clérigo é facilmente emboscado pela agilidade do Lobisomem e dominado pela autoridade arcana do Necromante.
+
+#### 6. Vampiro
+* **Vantagem contra Lobisomem:** Alimentado pelo sangue alheio devido à maldição das 10 primaveras, ele utiliza a vitalidade da fera para se regenerar no combate.
+* **Desvantagem contra Cavaleiro:** Não consegue drenar vida de um guerreiro que não possui sangue em suas veias.
+
+---
+
+### Ciclo de Combate
+
 ### 🛠️ Arquitetura e Tecnologias
 * **Estrutura:** Monorepo no GitHub (`Cathedral-of-Ashes`).
 * **Back-end:** Java 17+, Spring Boot, Spring WebSocket (STOMP), Spring Data JPA.
