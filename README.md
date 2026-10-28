@@ -1,5 +1,7 @@
 # 🏛️ Cathedral of Ashes — Dark Fantasy Card Game
 
+> Bem-vindo ao universo de **Cathedral of Ashes**. Abaixo está o registro histórico e a origem das 6 classes jogáveis que habitam o reino sob a sombra do Rei do Submundo.
+
 > **Cathedral of Ashes** é um jogo de duelo tático de cartas em tempo real (1v1), ambientado num universo *dark fantasy* soturno fortemente inspirado pela atmosfera sufocante de **Darkwood**. Com uma identidade visual marcante focada nas cores **preto, cinza e vermelho sangrento**, o projeto foi projetado e implementado como requisito prático para a disciplina de **Sistemas Distribuídos**.
 
 ---
@@ -31,6 +33,46 @@ O dado de 9 lados ($d9$) atua como o motor de dinamismo e multiplicador de jogad
 * Lobisomem
 * Bárbaro
 * Necromante
+
+## 📜 As Classes & As Suas Origens
+
+### 💀 1. O Necromante (*O Herdeiro do Submundo*)
+* **Origem & Papel:** Filho direto de **Dragon**, o Deus e Rei do Submundo, o Necromante é a personificação da decadência e da manipulação das almas.
+* **A Praga Sangrenta:** Em busca de expandir a influência de seu pai no mundo dos vivos, o Necromante criou uma maldição alquímica misteriosa. Esta doença concede poderes sobre-humanos àqueles infectados, transformando-os em **Vampiros**. O preço por esse poder é devastador: metade do rosto do hospedeiro fica permanentemente desfigurada e a sua vida é encurtada para exatas **10 primaveras**.
+
+---
+
+### 🪓 2. O Bárbaro (*O Mutilado Vingativo*)
+* **Origem & Mutilação:** Um ex-guerreiro de elite que foi traído por seus próprios aliados no campo de batalha, resultando na perda do seu braço esquerdo.
+* **Tragédia & Vingança:** Ao retornar para casa, encontrou a sua família morta e a sua aldeia reduzida a cinzas por servos sobrenaturais a mando do Necromante.
+* **A Visão Arcana:** Em um confronto visceral, o Bárbaro conseguiu assassinar o irmão do Necromante. Durante o combate mortal, perdeu a visão de um olho, mas o olho remanescente foi imbuído com a capacidade mística de enxergar feitiços e a aura de seres sobrenaturais. Hoje, ele vaga alimentado unicamente pela sede de vingança.
+
+---
+
+### 🛡️ 3. O Cavaleiro (*O Fantasma de Ferro*)
+* **A Traição Real:** Antigamente um leal soldado do reino, o Cavaleiro cometeu o crime de se apaixonar pela filha do Rei. Quando o romance proibido foi descoberto, o Rei ordenou a sua execução imediata.
+* **O Pacto com Dragon:** Enviado ao submundo, a sua alma recusou-se a descansar. Ele vendeu a sua essência imortal a **Dragon** em troca de uma segunda vida após a morte.
+* **A Caçada:** Agora, ele vaga pelo mundo mortal em uma armadura envolta em fumaça espectral e chamas rubras. O seu objetivo é duplo: cumprir o seu pacto com Dragon caçando almas perdidas para o submundo e desferir a sua vingança contra o reino que o executou.
+
+---
+
+### 🐺 4. O Lobisomem (*O Amaldiçoado da Lua de Sangue*)
+* **A Recusa da Fé:** Originalmente um simples civil de uma pacata vila, a sua vida mudou radicalmente quando ele se recusou abertamente a ajoelhar-se e professar fé ao deus Dragon perante a ordem da Catedral.
+* **A Maldição de Sangue:** Como punição pela sua insolência, os sacerdotes da Catedral rogaram-lhe uma maldição ancestral.
+* **O Despertar da Fera:** Agora banido da sociedade, ele vaga como um proscrito e é forçado a assumir a forma de uma besta incontrolável e cheia de cicatrizes a cada **Lua de Sangue** que se forma no céu, aterrorizando as ruas e devorando os fiéis da Catedral.
+
+---
+
+### 🕯️ 5. O Clérigo (*O Servo Supremo da Catedral*)
+* **O Líder da Fé:** Membro de mais alta hierarquia dentro da Catedral, o Clérigo é o fiel mais devoto de Dragon na terra e comanda a igreja com punho de ferro.
+* **Magia das Sombras:** Ocultando o seu rosto sob um capuz soturno e transportando a chama mística da Catedral na sua lanterna, ele domina a magia negra de controlar os mortos e reanimar cadáveres.
+* **A Vontade do Submundo:** É ele quem coordena os rituais da ordem e garante que a maldição do Necromante e o domínio de Dragon se espalhem por todos os cantos do reino.
+
+---
+
+### 🩸 6. O Vampiro (*O Infectado de Vida Curta*)
+* **Os Hospedeiros da Praga:** Vítimas (ou voluntários) infectados pela praga desenvolvida pelo Necromante.
+* **Poder & Preço:** Em troca de força sobre-humana, habilidades de dreno vital e imortalidade temporária contra armas comuns, o Vampiro carrega a marca do Necromante: metade do seu rosto é grotescamente desfigurado e o seu relógio biológico está selado para ruir em apenas **10 primaveras**.
 
 ## ⚔️ Sistema de Vantagens e Desvantagens (Combat Matrix)
 
